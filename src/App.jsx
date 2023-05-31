@@ -4,7 +4,7 @@ import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 function App() {
-  const activeMenu = false;
+  const activeMenu = true;
 
   return (
     <>
@@ -29,6 +29,10 @@ function App() {
             ) : (
               <div className="w-0 dark:bg-secondary-dark-bg">Sidebar w-0</div>
             )}
+            <div
+              className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
+                activeMenu ? "md:ml-72" : "flex-2"
+              } `}></div>
           </div>
         </BrowserRouter>
       </div>
