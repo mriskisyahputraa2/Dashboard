@@ -4,7 +4,7 @@ import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 function App() {
-  const activeMenu = true;
+  const activeMenu = false;
 
   return (
     <>
