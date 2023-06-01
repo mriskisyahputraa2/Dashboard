@@ -4,8 +4,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 // import data
-// import { links } from "../data/dummy";
-
+import { links } from "../data/dummy";
 const Sidebar = () => {
   const activeMenu = true;
 
@@ -25,6 +24,17 @@ const Sidebar = () => {
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>
+          </div>
+          <div>
+            {links.map((item) => {
+              return (
+                <>
+                  <div className="text-gray-400 m-3 mt-4 uppercase">
+                    {item.title}
+                  </div>
+                </>
+              );
+            })}
           </div>
         </>
       )}
