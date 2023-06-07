@@ -22,7 +22,7 @@ const Sidebar = () => {
             <Link
               to="/"
               // ketika pada saat di onClik fungsi setActiveMenu yang tadinya true akan berubah menjadi false
-              onClick={() => setActiveMenu(false)}
+              // onClick={() => setActiveMenu(false)}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
               <SiShopware /> <span>Shoppy</span>
             </Link>
