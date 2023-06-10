@@ -12,8 +12,7 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import avatar from "../data/avatar.jpg";
 
 // components
-import { Cart, Chat, UserProfile } from ".";
-import Notification from "../components/Notification";
+import { Cart, Chat, UserProfile, Notification } from ".";
 
 // contex
 import { useStateContext } from "../contexts/ContextProvider";
