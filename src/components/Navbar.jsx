@@ -49,27 +49,32 @@ const Navbar = () => {
     setScreenSize,
   } = useStateContext();
 
-  //
+  // mengatur perubahan layar
   useEffect(() => {
+    // memperbarui nilai `ScreenSize` dengan `window.innerWidth` yang merupakan lebar layar saat ini
     const handleResize = () => setScreenSize(window.innerWidth);
 
-    //
+    // menambahkan event listener untuk event "resize" pada objek window. Saat ukuran layar berubah, fungsi handleResize akan dipanggil.
     window.addEventListener("resize", handleResize);
 
-    //
+    // Setelah itu, kita langsung memanggil handleResize() sekali saat komponen pertama kali dirender. Hal ini dilakukan untuk menginisialisasi nilai screenSize dengan ukuran layar saat itu.
     handleResize();
 
-    //
+    // mengembalikan komponen saat di render ulang dengan menghapus event listener "resize" yang telah ditambahkan sebelumnya menggunakan window.removeEventListener("resize", handleResize).
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  //
+  // menutup dan menampilkan sidebar
   useEffect(() => {
+    //  jika screenSize lebih kecil dari 900 atau sama dengan 900
     if (screenSize <= 900) {
+      // maka activeMenu akan menutup(false)
       setActiveMenu(false);
     } else {
+      // jika tidak, maka activeMenu akan menampilkan (true)
       setActiveMenu(true);
     }
+    //  memastikan bahwa fungsi untuk mengatur activeMenu akan dipanggil setiap kali nilai screenSize berubah.
   }, [screenSize]);
 
   return (
