@@ -12,7 +12,8 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import avatar from "../data/avatar.jpg";
 
 // components
-import { Cart, Chat, Notification, UserProfile } from ".";
+import { Cart, Chat, UserProfile } from ".";
+import Notification from "../components/Notification";
 
 // contex
 import { useStateContext } from "../contexts/ContextProvider";
@@ -38,9 +39,38 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 
 const Navbar = () => {
   // use Context
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setIsClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+  } = useStateContext();
 
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } =
-    useStateContext();
+  //
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    //
+    window.addEventListener("resize", handleResize);
+
+    //
+    handleResize();
+
+    //
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  //
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
 
   return (
     <>
@@ -67,10 +97,9 @@ const Navbar = () => {
             icon={<BsChatLeft />}
           />
           <NavButton
-            title="Notifications"
-            // dotColor="#03C9D7"
+            title="Notification"
             color="blue"
-            customFunc={() => handleClick("notifications")}
+            customFunc={() => handleClick("notification")}
             icon={<RiNotification3Line />}
           />
           <TooltipComponent content="Profile" position="BottomCenter">
