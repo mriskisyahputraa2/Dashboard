@@ -51,8 +51,42 @@ const Ecommerce = () => {
                 className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl">
                 {item.icon}
               </button>
+              <p className="mt-3">
+                {/*  amount */}
+                <span className="text-lg font-semibold">{item.amount}</span>
+
+                {/* percentage */}
+                <span className={`text-sm text-${item.pcColor} ml-2`}>
+                  {item.percentage}
+                </span>
+              </p>
+
+              {/* title */}
+              <p className="text-sm text-gray-400 mt-1 ">{item.title}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className="flex gap-10 flex-wrap justify-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
+          <div className="flex justify-between">
+            <p className="font-semibold text-xl">Revenu Updates</p>
+            <div className="flex items-center gap-4">
+              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
+                <span>
+                  <GoPrimitiveDot />
+                </span>
+                <span>Expense</span>
+              </p>
+              <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
+                <span>
+                  <GoPrimitiveDot />
+                </span>
+                <span>Budget</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
